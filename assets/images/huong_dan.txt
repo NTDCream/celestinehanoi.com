@@ -1,0 +1,9 @@
+Anh hay copy anh của minh va đổi tên roi bo vao day nhé:
+- hero-bg.jpg : Anh nen (Hero) chao mung tren cung.
+- tong-quan.jpg : Anh phoi canh tong quan du an.
+- ban-do.jpg : Chat lieu ban do chi duong.
+- duplex-bg.jpg : Anh thay cho phan mat bang Duplex.
+- tien-ich-spa.jpg : Tien ich Be boi Spa.
+- tien-ich-gym.jpg : Tien ich Gym Yoga.
+- tien-ich-sanh.jpg : Anh sanh chờ lobby.
+- tien-ich-giai-tri.jpg : Anh tien ich bida piano.
