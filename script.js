@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // --- Modal Functions ---
-const modal = document.getElementById('register-modal');
+const modal = document.getElementById('frm-contact-v2');
 
 function openModal() {
     modal.classList.add('active');

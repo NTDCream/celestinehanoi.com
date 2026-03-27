@@ -6,21 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- ============================================================
-         ANTI-SCROLL SNIPPET v1.0 — Chống tự cuộn khi click từ Meta/TikTok Ads
-         Nguyên nhân: Meta In-App Browser gắn #hash vào URL, browser cuộn đến element
-         Fix: Xóa hash ngay khi page load, trước khi browser kịp cuộn
+         ANTI-SCROLL SNIPPET v2.0 — Chống tự cuộn khi click từ Meta/TikTok Ads
+         Fix tăng cường: Khóa scroll trong 2 giây đầu
+         Facebook IAB inject nút 'Dưa tôi đến đó' và scroll native -> không dùng JS đơn thuần được
+         Giải pháp: Đổi ID modal + scroll lock mechanism
          ============================================================ -->
     <script>
         (function () {
-            // Xóa hash fragment trong URL (giữ nguyên ?fbclid và query params)
+            // 1. Xóa hash fragment trong URL (giữ nguyên ?fbclid và query params)
             if (window.location.hash) {
                 history.replaceState(null, '', window.location.pathname + window.location.search);
             }
-            // Cưỡng chế về đầu trang
+
+            // 2. Cưỡng chế về đầu trang ngay lập tức
             window.scrollTo(0, 0);
+            document.documentElement.scrollTop = 0;
+            document.body && (document.body.scrollTop = 0);
+
+            // 3. Khóa scroll trong 2 giây đầu để chặn Facebook IAB native scroll
+            var _lockScroll = true;
+            function _forceTop() {
+                if (_lockScroll) {
+                    window.scrollTo(0, 0);
+                    document.documentElement.scrollTop = 0;
+                }
+            }
+            window.addEventListener('scroll', _forceTop, true);
+            document.addEventListener('scroll', _forceTop, true);
+
+            // Giải khóa sau 2 giây (người dùng có thể scroll bình thường sau đó)
+            setTimeout(function () {
+                _lockScroll = false;
+                window.removeEventListener('scroll', _forceTop, true);
+                document.removeEventListener('scroll', _forceTop, true);
+            }, 2000);
         })();
     </script>
-    <!-- END ANTI-SCROLL SNIPPET -->
+    <!-- END ANTI-SCROLL SNIPPET v2.0 -->
     <title>Chung Cư Celestine Westlake - Nơi Khởi Nguyên Cuộc Sống Thượng Lưu</title>
     <meta name="description"
         content="Dự án chung cư hạng sang Celestine Westlake tại 300 Võ Chí Công. 100% sở hữu lâu dài. Tầm nhìn panorama Hồ Tây. 216 căn hộ độc bản.">
@@ -231,8 +253,8 @@
 
 <body>
 
-    <!-- Modal Form — Đặt đầu <body> để tránh browser cuộn đến khi URL có #register-modal -->
-    <div class="modal-overlay" id="register-modal">
+    <!-- Modal Form — ID được đổi sang 'frm-contact-v2' để Facebook IAB không nhận ra đích -->
+    <div class="modal-overlay" id="frm-contact-v2">
         <div class="modal-content modal-split">
             <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
             <div class="modal-left">
