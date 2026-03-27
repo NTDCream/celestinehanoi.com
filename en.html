@@ -4,6 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ============================================================
+         ANTI-SCROLL SNIPPET v1.0 — Prevent auto-scroll from Meta/TikTok Ads
+         Root cause: Meta In-App Browser appends #hash to URL, browser scrolls to element
+         Fix: Clear hash immediately on page load, before browser scrolls
+         ============================================================ -->
+    <script>
+        (function () {
+            // Remove hash fragment from URL (preserve ?fbclid and other query params)
+            if (window.location.hash) {
+                history.replaceState(null, '', window.location.pathname + window.location.search);
+            }
+            // Force scroll to top
+            window.scrollTo(0, 0);
+        })();
+    </script>
+    <!-- END ANTI-SCROLL SNIPPET -->
     <title>Celestine Westlake - The Origin of Luxury Living</title>
     <meta name="description"
         content="Luxury apartments Celestine Westlake at 300 Vo Chi Cong. 100% freehold ownership. Panoramic West Lake view. 216 exclusive units.">

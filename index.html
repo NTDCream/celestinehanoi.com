@@ -4,6 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ============================================================
+         ANTI-SCROLL SNIPPET v1.0 — Chống tự cuộn khi click từ Meta/TikTok Ads
+         Nguyên nhân: Meta In-App Browser gắn #hash vào URL, browser cuộn đến element
+         Fix: Xóa hash ngay khi page load, trước khi browser kịp cuộn
+         ============================================================ -->
+    <script>
+        (function () {
+            // Xóa hash fragment trong URL (giữ nguyên ?fbclid và query params)
+            if (window.location.hash) {
+                history.replaceState(null, '', window.location.pathname + window.location.search);
+            }
+            // Cưỡng chế về đầu trang
+            window.scrollTo(0, 0);
+        })();
+    </script>
+    <!-- END ANTI-SCROLL SNIPPET -->
     <title>Chung Cư Celestine Westlake - Nơi Khởi Nguyên Cuộc Sống Thượng Lưu</title>
     <meta name="description"
         content="Dự án chung cư hạng sang Celestine Westlake tại 300 Võ Chí Công. 100% sở hữu lâu dài. Tầm nhìn panorama Hồ Tây. 216 căn hộ độc bản.">
@@ -213,6 +230,52 @@
 </head>
 
 <body>
+
+    <!-- Modal Form — Đặt đầu <body> để tránh browser cuộn đến khi URL có #register-modal -->
+    <div class="modal-overlay" id="register-modal">
+        <div class="modal-content modal-split">
+            <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
+            <div class="modal-left">
+                <div class="modal-left-content">
+                    <h3>Celestine Westlake</h3>
+                    <p>Khẳng định vị thế độc tôn với tầm nhìn panorama ôm trọn tinh hoa Hồ Tây.</p>
+                </div>
+            </div>
+            <div class="modal-right">
+                <h3 class="text-center" style="margin-bottom: 15px; color: var(--color-gold);">TẢI BẢNG GIÁ &amp; QUỸ CĂN
+                </h3>
+                <p class="text-center" style="margin-bottom: 25px; font-size: 14px; color: rgba(255, 255, 255, 0.8);">Để
+                    lại
+                    thông tin để nhận tài liệu chính thức từ CĐT</p>
+                <form onsubmit="handleFormSubmit(event)">
+                    <div class="form-group">
+                        <input type="text" name="fullname" class="form-control" placeholder="Họ và tên của quý khách"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" name="phone" class="form-control" placeholder="Số điện thoại (Có Zalo)"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" class="form-control" placeholder="Email nhận file Bảng Giá">
+                    </div>
+                    <div class="form-group">
+                        <select name="apartment_type" class="form-control" style="cursor: pointer; background-color: transparent; appearance: menulist;">
+                            <option value="" disabled selected>Loại căn hộ quan tâm</option>
+                            <option value="1 ngủ" style="color: black;">1 Phòng ngủ</option>
+                            <option value="2 ngủ" style="color: black;">2 Phòng ngủ</option>
+                            <option value="3 ngủ" style="color: black;">3 Phòng ngủ</option>
+                            <option value="dualkey" style="color: black;">Dual Key</option>
+                            <option value="duplex" style="color: black;">Duplex</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-primary" style="width: 100%;">TẢI TÀI LIỆU NGAY</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- END Modal Form -->
+
 
     <!-- Header Navigation -->
     <header class="header">
@@ -1827,51 +1890,6 @@
         </div>
     </footer>
 
-
-    <!-- Modal Form -->
-    <!-- Modal Form -->
-    <div class="modal-overlay" id="register-modal">
-        <div class="modal-content modal-split">
-            <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
-            <div class="modal-left">
-                <div class="modal-left-content">
-                    <h3>Celestine Westlake</h3>
-                    <p>Khẳng định vị thế độc tôn với tầm nhìn panorama ôm trọn tinh hoa Hồ Tây.</p>
-                </div>
-            </div>
-            <div class="modal-right">
-                <h3 class="text-center" style="margin-bottom: 15px; color: var(--color-gold);">TẢI BẢNG GIÁ & QUỸ CĂN
-                </h3>
-                <p class="text-center" style="margin-bottom: 25px; font-size: 14px; color: rgba(255, 255, 255, 0.8);">Để
-                    lại
-                    thông tin để nhận tài liệu chính thức từ CĐT</p>
-                <form onsubmit="handleFormSubmit(event)">
-                    <div class="form-group">
-                        <input type="text" name="fullname" class="form-control" placeholder="Họ và tên của quý khách"
-                            required>
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" name="phone" class="form-control" placeholder="Số điện thoại (Có Zalo)"
-                            required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" name="email" class="form-control" placeholder="Email nhận file Bảng Giá">
-                    </div>
-                    <div class="form-group">
-                        <select name="apartment_type" class="form-control" style="cursor: pointer; background-color: transparent; appearance: menulist;">
-                            <option value="" disabled selected>Loại căn hộ quan tâm</option>
-                            <option value="1 ngủ" style="color: black;">1 Phòng ngủ</option>
-                            <option value="2 ngủ" style="color: black;">2 Phòng ngủ</option>
-                            <option value="3 ngủ" style="color: black;">3 Phòng ngủ</option>
-                            <option value="dualkey" style="color: black;">Dual Key</option>
-                            <option value="duplex" style="color: black;">Duplex</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn-primary" style="width: 100%;">TẢI TÀI LIỆU NGAY</button>
-                </form>
-            </div>
-        </div>
-    </div>
 
     <!-- Floating Contact Actions -->
     <div class="floating-actions">
