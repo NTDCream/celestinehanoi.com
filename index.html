@@ -2,47 +2,17 @@
 <html lang="vi">
 
 <head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PJMR96RM');</script>
+    <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- ============================================================
-         ANTI-SCROLL SNIPPET v2.0 — Chống tự cuộn khi click từ Meta/TikTok Ads
-         Fix tăng cường: Khóa scroll trong 2 giây đầu
-         Facebook IAB inject nút 'Dưa tôi đến đó' và scroll native -> không dùng JS đơn thuần được
-         Giải pháp: Đổi ID modal + scroll lock mechanism
-         ============================================================ -->
-    <script>
-        (function () {
-            // 1. Xóa hash fragment trong URL (giữ nguyên ?fbclid và query params)
-            if (window.location.hash) {
-                history.replaceState(null, '', window.location.pathname + window.location.search);
-            }
 
-            // 2. Cưỡng chế về đầu trang ngay lập tức
-            window.scrollTo(0, 0);
-            document.documentElement.scrollTop = 0;
-            document.body && (document.body.scrollTop = 0);
-
-            // 3. Khóa scroll trong 2 giây đầu để chặn Facebook IAB native scroll
-            var _lockScroll = true;
-            function _forceTop() {
-                if (_lockScroll) {
-                    window.scrollTo(0, 0);
-                    document.documentElement.scrollTop = 0;
-                }
-            }
-            window.addEventListener('scroll', _forceTop, true);
-            document.addEventListener('scroll', _forceTop, true);
-
-            // Giải khóa sau 2 giây (người dùng có thể scroll bình thường sau đó)
-            setTimeout(function () {
-                _lockScroll = false;
-                window.removeEventListener('scroll', _forceTop, true);
-                document.removeEventListener('scroll', _forceTop, true);
-            }, 2000);
-        })();
-    </script>
-    <!-- END ANTI-SCROLL SNIPPET v2.0 -->
     <title>Chung Cư Celestine Westlake - Nơi Khởi Nguyên Cuộc Sống Thượng Lưu</title>
     <meta name="description"
         content="Dự án chung cư hạng sang Celestine Westlake tại 300 Võ Chí Công. 100% sở hữu lâu dài. Tầm nhìn panorama Hồ Tây. 216 căn hộ độc bản.">
@@ -252,6 +222,10 @@
 </head>
 
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PJMR96RM"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
     <!-- Modal Form — ID được đổi sang 'frm-contact-v2' để Facebook IAB không nhận ra đích -->
     <div class="modal-overlay" id="frm-contact-v2">
@@ -318,7 +292,7 @@
             <div class="header-action">
                 <a href="en.html" onclick="sessionStorage.setItem('lang_selected', 'true')" class="lang-switch"
                     title="English Version">EN 🇬🇧</a>
-                <a href="tel:0934524445" class="btn-primary"><i class="fas fa-phone-alt"></i> 0934 524 445</a>
+                <a href="tel:0914446368" class="btn-primary"><i class="fas fa-phone-alt"></i> 0914 446 368</a>
                 <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
             </div>
         </div>
@@ -1880,7 +1854,7 @@
                     </li>
                     <li style="display: block; margin-bottom: 10px; font-size: 13px;">
                         <i class="fas fa-phone-alt" style="color: var(--gold-h); margin-right: 8px; width: 14px;"></i>
-                        <a href="tel:0934524445" style="color: inherit; text-decoration: none;">0934 524 445</a>
+                        <a href="tel:0914446368" style="color: inherit; text-decoration: none;">0914 446 368</a>
                     </li>
                 </ul>
             </div>
@@ -1915,7 +1889,7 @@
 
     <!-- Floating Contact Actions -->
     <div class="floating-actions">
-        <a href="tel:0934524445" class="float-btn float-call">
+        <a href="tel:0914446368" class="float-btn float-call">
             <i class="fas fa-phone-alt"></i>
             <span class="pulse"></span>
         </a>
