@@ -121,30 +121,23 @@ window.handleFormSubmit = function (event) {
         body: urlParams,
         mode: 'no-cors'
     }).then(() => {
-        // Thông báo thành công - giữ nguyên trạng thái cho đến khi F5
-        btn.innerHTML = '<i class="fas fa-check-circle"></i> ĐĂNG KÝ THÀNH CÔNG!';
-        btn.style.background = '#28a745';
-        btn.style.opacity = '1';
-        btn.disabled = true;
-
-        // Bắn sự kiện Lead tracking (Meta + TikTok) trước khi reset form
+        // Bắn sự kiện Lead tracking (Meta + TikTok) trước khi reset/redirect
         const emailVal = formData.get('email') || '';
         const phoneVal = formData.get('phone') || '';
         processLeadTracking(emailVal, phoneVal);
 
-        form.reset();
+        // Lưu thông tin khách vào bộ nhớ tạm thời của trình duyệt
+        sessionStorage.setItem('celestine_guest_name', formData.get('fullname') || '');
+        sessionStorage.setItem('celestine_guest_phone', formData.get('phone') || '');
 
-        // Ẩn các input đi, chỉ giữ lại nút thành công
-        form.querySelectorAll('input, .form-group').forEach(el => {
-            el.style.display = 'none';
-        });
+        // Chuyển nút sang trạng thái đang chuyển hướng
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> CHUYỂN HƯỚNG...';
+        btn.style.background = '#28a745';
 
-        // Đóng modal nếu đang mở (sau 2 giây)
+        // Tự động chuyển trang sau nửa giây
         setTimeout(() => {
-            if (modal.classList.contains('active')) {
-                closeModal();
-            }
-        }, 2000);
+            window.location.href = 'thank-you.html';
+        }, 500);
     }).catch(error => {
         console.error('Lỗi khi gửi form:', error);
         btn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> LỖI, THỬ LẠI!';
