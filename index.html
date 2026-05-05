@@ -33,8 +33,10 @@
     content="Khám phá biểu tượng sống sang bậc nhất Tây Hồ. Căn hộ độc bản, sở hữu lâu dài.">
   <meta name="twitter:image" content="https://landing-celestine-westlake.vercel.app/images/Hero-bg.jpg">
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
     rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
@@ -100,12 +102,12 @@
             "full": "0.75rem"
           },
           fontFamily: {
-            "headline": ["Playfair Display", "serif"],
-            "display": ["Playfair Display", "serif"],
-            "body": ["Playfair Display", "serif"],
-            "label": ["Playfair Display", "serif"],
+            "headline": ["Montserrat", "sans-serif"],
+            "display": ["Montserrat", "sans-serif"],
+            "body": ["Montserrat", "sans-serif"],
+            "label": ["Montserrat", "sans-serif"],
             "calligraphy": ["Dancing Script", "cursive"],
-            "sans": ["ui-sans-serif", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"]
+            "sans": ["Montserrat", "ui-sans-serif", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"]
           }
         }
       }
@@ -118,7 +120,7 @@
     }
 
     body {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Montserrat', sans-serif;
       background-color: #f9f9fc;
       color: #191c1e;
       overflow-x: hidden;
@@ -154,7 +156,7 @@
       text-shadow: 0 2px 10px rgba(255, 255, 255, 0.95), 0 0 25px rgba(255, 255, 255, 0.9), 0 0 50px rgba(255, 255, 255, 0.8), 2px 2px 2px rgba(255, 255, 255, 0.5);
     }
 
-    /* Cormorant Garamond – luxury headline refinements */
+    /* Montserrat – luxury headline refinements */
     h1,
     h2,
     h3,
@@ -184,7 +186,7 @@
 
     /* Navigation labels */
     .font-display {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Montserrat', sans-serif;
       text-transform: uppercase;
       letter-spacing: 0.12em;
     }
@@ -434,7 +436,7 @@
     .mp-label {
       text-align: center;
       color: rgba(255, 255, 255, 0.7);
-      font-family: 'Playfair Display', serif;
+      font-family: 'Montserrat', sans-serif;
       font-style: italic;
       font-size: 15px;
       margin-top: 12px;
@@ -529,7 +531,7 @@
       color: rgba(255, 255, 255, 0.5);
       font-size: 12px;
       letter-spacing: 0.15em;
-      font-family: 'Playfair Display', serif;
+      font-family: 'Montserrat', sans-serif;
     }
 
     .lightbox-caption {
@@ -539,7 +541,7 @@
       transform: translateX(-50%);
       color: rgba(255, 255, 255, 0.7);
       font-size: 15px;
-      font-family: 'Playfair Display', serif;
+      font-family: 'Montserrat', sans-serif;
       font-style: italic;
       white-space: nowrap;
       max-width: 80vw;
@@ -604,7 +606,7 @@
 
     .progress-slide-caption p {
       color: rgba(255, 255, 255, 0.85);
-      font-family: 'Playfair Display', serif;
+      font-family: 'Montserrat', sans-serif;
       font-style: italic;
       font-size: 14px;
       line-height: 1.4;
@@ -616,7 +618,7 @@
       flex-shrink: 0;
       background: #facc15;
       color: #002d41;
-      font-family: 'Playfair Display', serif;
+      font-family: 'Montserrat', sans-serif;
       font-size: 9px;
       font-weight: 800;
       letter-spacing: 0.15em;
@@ -764,7 +766,7 @@
 
     .progress-marquee-caption span:last-child {
       color: rgba(255, 255, 255, 0.8);
-      font-family: 'Playfair Display', serif;
+      font-family: 'Montserrat', sans-serif;
       font-style: italic;
       font-size: 13px;
     }
@@ -1142,9 +1144,6 @@
     <div class="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-12 gap-8">
       <div class="md:col-span-12 lg:col-span-9 flex flex-col justify-center overflow-visible">
         <div class="flex flex-col gap-2 md:gap-3 max-w-none z-10 pt-16 md:pt-0">
-          <span
-            class="font-calligraphy text-[#cca730] text-[clamp(2rem,6vw,5.5rem)] leading-[1.2] font-bold animate-float-text-1 drop-shadow-xl whitespace-normal lg:whitespace-nowrap">Biểu
-            tượng sống thượng lưu</span>
           <h1
             class="font-headline text-[clamp(2rem,5.5vw,5.5rem)] leading-[1.1] text-[#004b49] font-bold animate-float-text-2 text-glow-white-strong whitespace-normal lg:whitespace-nowrap">
             Căn hộ hạng sang cuối cùng</h1>
